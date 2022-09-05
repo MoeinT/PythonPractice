@@ -18,11 +18,11 @@ jobs:
       run: poetry install
     - name: Running black
       run: |
-      cd scripts
-      poetry run black . --check --diff
+        cd scripts
+        poetry run black . --check --diff
     - name: Running isort
       run: |
-      cd scripts
-      poetry run isort . --check --diff
+        cd scripts
+        poetry run isort . --check --diff
     - name: Testing with pytest
       run: if [ -d tests ] || [ -d test ]; then poetry run python -m pytest; fi
