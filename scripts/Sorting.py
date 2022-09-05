@@ -24,8 +24,6 @@ class MySorting:
         return l
 
 
-
-
 if __name__ == "__main__":
     l = [1, 9, 0, 2, 7, 5, 8, 3, 0, 3, 11, 5, 2, 8, 4]
     print(MySorting(l).BubbleSort())
