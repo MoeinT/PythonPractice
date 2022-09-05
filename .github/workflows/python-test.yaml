@@ -17,7 +17,9 @@ jobs:
     - name: Installing poetry
       run: poetry install
     - name: Running isort
-      run: poetry run isort . --check --diff
+      run: |
+        cd scripts
+        poetry run isort . --check --diff
     - name: Running black
       run: poetry run black . --check --diff
     - name: Testing with pytest
