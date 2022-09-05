@@ -4,7 +4,7 @@ on:
       - feat/python
 
 jobs:
-  PythonTest:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,13 +16,9 @@ jobs:
       uses: abatilo/actions-poetry@v2.0.0
     - name: Installing poetry
       run: poetry install
-    - name: Running black
+    - name: Checking formatting..
       run: |
-        cd scripts
-        poetry run black . --check --diff
-    - name: Running isort
-      run: |
-        cd scripts
-        poetry run isort . --check --diff
+          poetry run black . --check --diff
     - name: Testing with pytest
-      run: if [ -d tests ] || [ -d test ]; then poetry run python -m pytest; fi
+      run: |
+        if [ -d tests ] || [ -d test ]; then poetry run python -m pytest; fi
