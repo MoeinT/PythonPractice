@@ -8,6 +8,7 @@ authors = ["Moein"]
 python = "^3.10"
 black = "^22.8.0"
 isort = "^5.10.1"
+tomli = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 
