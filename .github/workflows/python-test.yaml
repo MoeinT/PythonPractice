@@ -4,7 +4,7 @@ on:
       - feat/python
 
 jobs:
-  build:
+  PythonTest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,8 +17,12 @@ jobs:
     - name: Installing poetry
       run: poetry install
     - name: Running black
-      run: poetry run black . --check --diff
+      run: |
+      cd scripts
+      poetry run black . --check --diff
     - name: Running isort
-      run: poetry run isort . --check --diff
+      run: |
+      cd scripts
+      poetry run isort . --check --diff
     - name: Testing with pytest
       run: if [ -d tests ] || [ -d test ]; then poetry run python -m pytest; fi
