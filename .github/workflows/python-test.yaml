@@ -1,0 +1,24 @@
+on: 
+  push:
+    branches: 
+      - feat/python
+
+jobs:
+  PythonTests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setting up Python 3.10..
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10.x
+    - name: Setting up poetry..
+      uses: abatilo/actions-poetry@v2.0.0
+    - name: Installing poetry
+      run: poetry install
+    - name: Running isort
+      run: poetry run isort . --check --diff
+    - name: Running black
+      run: poetry run black . --check --diff
+    - name: Testing with pytest
+      run: if [ -d tests ] || [ -d test ]; then poetry run python -m pytest; fi
