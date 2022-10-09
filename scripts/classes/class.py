@@ -34,7 +34,7 @@ class Employee:
 
     def set_raise_amount(self, amount):
         """
-        This methid only modify the variable for a specific instance of the Employee class; 
+        This methid only modify the variable for a specific instance of the Employee class;
         not for all instance.
          """
         self.raise_amount = amount
