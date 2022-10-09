@@ -1,7 +1,5 @@
 import math
 
-# isort
-
 
 class Employee:
 
