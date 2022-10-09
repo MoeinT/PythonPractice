@@ -32,12 +32,12 @@ class Employee:
     def set_base_salary(cls, amount):
         cls.base_salary = amount
 
-    @classmethod
-    def set_raise_amount(cls, amount):
+    def set_raise_amount(self, amount):
         """
-        Since this is a class method, it'll update the 'raise_amount' for all instances.
+        This methid only modify the variable for a specific instance of the Employee class; 
+        not for all instance.
          """
-        cls.raise_amount = amount
+        self.raise_amount = amount
 
     def GetSalary(self):
 
@@ -56,12 +56,12 @@ if __name__ == "__main__":
     print(moein.GetSalary())
     moein.set_raise_amount(1.01)
     print(moein.GetSalary())
+    print(moein.raise_amount)
+    print(Employee.raise_amount)
+
 
 
     thomas = Employee("Thomas", "Lin", 5000)
-    thomas.set_raise_amount(1.00)
-    print(thomas.GetSalary())
-
-
-    kamil = Employee.from_string("Kamil-something-4000")
-    print(kamil.GetSalary())
+    # print(thomas.raise_amount)
+    # kamil = Employee.from_string("Kamil-something-4000")
+    # print(kamil.GetSalary())
