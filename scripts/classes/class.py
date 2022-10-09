@@ -1,6 +1,5 @@
 import math
 
-
 class Employee:
 
     """
@@ -37,7 +36,7 @@ class Employee:
         """
         This methid only modify the variable for a specific instance of the Employee class;
         not for all instance.
-        """
+         """
         self.raise_amount = amount
 
     def GetSalary(self):
@@ -46,9 +45,7 @@ class Employee:
         using self.annual_raise allows us to modify this variable outside the class.
         It will also also subclasses of this class to modify that variable if they wanted to.
         """
-        self.salary = int(
-            (Employee.base_salary + self.additional_amount) * self.raise_amount
-        )
+        self.salary = int((Employee.base_salary + self.additional_amount) * self.raise_amount)
         return self.salary
 
 
@@ -61,6 +58,8 @@ if __name__ == "__main__":
     print(moein.GetSalary())
     print(moein.raise_amount)
     print(Employee.raise_amount)
+
+
 
     thomas = Employee("Thomas", "Lin", 5000)
     # print(thomas.raise_amount)
